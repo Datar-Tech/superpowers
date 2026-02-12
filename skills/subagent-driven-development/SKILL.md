@@ -1,6 +1,6 @@
 ---
 name: subagent-driven-development
-description: Use when executing implementation plans with independent tasks in the current session
+description: Use when executing implementation plans with independent tasks in the current session. Do NOT use when running as an Agent Teams teammate — Agent Teams handles orchestration natively.
 ---
 
 # Subagent-Driven Development
@@ -8,6 +8,8 @@ description: Use when executing implementation plans with independent tasks in t
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
 **Core principle:** Fresh subagent per task + two-stage review (spec then quality) = high quality, fast iteration
+
+> **Agent Teams:** Do NOT use this skill when Claude Code Agent Teams is active. Agent Teams replaces this skill's orchestration — the Lead spawns implementer + reviewer teammates instead. Using both creates nested orchestration (Agent Teams → Teammate → Subagents), wasting tokens and causing confusion. See `docs/agent-teams-integration-guide.md`.
 
 ## When to Use
 

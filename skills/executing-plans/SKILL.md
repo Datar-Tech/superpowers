@@ -1,6 +1,6 @@
 ---
 name: executing-plans
-description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
+description: Use when you have a written implementation plan to execute in a separate session with review checkpoints. Do NOT use when running as an Agent Teams teammate — the Lead manages the shared task list with checkpoints natively.
 ---
 
 # Executing Plans
@@ -12,6 +12,8 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 **Core principle:** Batch execution with checkpoints for architect review.
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
+
+> **Agent Teams:** Do NOT use this skill when Claude Code Agent Teams is active. Agent Teams replaces this skill — the Lead manages a shared task list with checkpoints instead. Using both creates nested orchestration. See `docs/agent-teams-integration-guide.md`.
 
 ## The Process
 
