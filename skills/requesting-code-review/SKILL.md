@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements. Do NOT use when running as an Agent Teams teammate — use a dedicated reviewer teammate instead.
 ---
 
 # Requesting Code Review
@@ -8,6 +8,8 @@ description: Use when completing tasks, implementing major features, or before m
 Dispatch superpowers:code-reviewer subagent to catch issues before they cascade.
 
 **Core principle:** Review early, review often.
+
+> **Agent Teams:** Do NOT use this skill when Claude Code Agent Teams is active. Instead, spawn a dedicated reviewer teammate who can have a back-and-forth dialogue with the implementer — stronger than one-shot subagent review. See `docs/agent-teams-integration-guide.md`.
 
 ## When to Request Review
 

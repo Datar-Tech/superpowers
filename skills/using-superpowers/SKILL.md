@@ -72,6 +72,21 @@ These thoughts mean STOP—you're rationalizing:
 | "This feels productive" | Undisciplined action wastes time. Skills prevent this. |
 | "I know what that means" | Knowing the concept ≠ using the skill. Invoke it. |
 
+## Agent Teams Compatibility
+
+When Claude Code Agent Teams is active (Lead + Teammates pattern), **skip the 4 orchestration skills** — Agent Teams handles orchestration natively and better:
+
+| Skip this skill | Agent Teams replacement |
+|----------------|----------------------|
+| `subagent-driven-development` | Lead spawns implementer + reviewer teammates |
+| `dispatching-parallel-agents` | Lead spawns multiple teammates in parallel |
+| `executing-plans` | Lead manages shared task list with checkpoints |
+| `requesting-code-review` | Dedicated reviewer teammate (can dialogue) |
+
+**All other skills (10 of 14) work normally** in Agent Teams. Teammates should especially use: `test-driven-development`, `systematic-debugging`, `verification-before-completion`.
+
+See `docs/agent-teams-integration-guide.md` for full details, spawn prompt templates, and team templates.
+
 ## Skill Priority
 
 When multiple skills could apply, use this order:

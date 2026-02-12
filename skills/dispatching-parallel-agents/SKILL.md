@@ -1,6 +1,6 @@
 ---
 name: dispatching-parallel-agents
-description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies. Do NOT use when running as an Agent Teams teammate — Agent Teams handles parallel dispatch natively.
 ---
 
 # Dispatching Parallel Agents
@@ -10,6 +10,8 @@ description: Use when facing 2+ independent tasks that can be worked on without 
 When you have multiple unrelated failures (different test files, different subsystems, different bugs), investigating them sequentially wastes time. Each investigation is independent and can happen in parallel.
 
 **Core principle:** Dispatch one agent per independent problem domain. Let them work concurrently.
+
+> **Agent Teams:** Do NOT use this skill when Claude Code Agent Teams is active. Agent Teams replaces this skill — the Lead spawns multiple teammates in parallel instead. Using both creates nested orchestration. See `docs/agent-teams-integration-guide.md`.
 
 ## When to Use
 
