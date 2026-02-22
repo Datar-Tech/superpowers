@@ -7,7 +7,17 @@ main   → 永遠與 upstream (obra/superpowers) 保持一致，不放自訂內�
 custom → upstream + 我的修改，日常使用這個分支
 ```
 
-### 同步上游
+### 同步上游（自動）
+
+GitHub Action (`.github/workflows/sync-upstream.yml`) 每日 08:00 UTC 自動執行：
+1. Fetch upstream `obra/superpowers` main
+2. Fast-forward 本地 `main`
+3. Rebase `custom` 到最新 `main`
+4. Force push 兩個分支
+
+如果 rebase 衝突，會自動開 Issue 通知。也可以在 GitHub Actions 頁面手動觸發。
+
+### 手動同步（備用）
 
 ```bash
 git fetch upstream
@@ -18,6 +28,16 @@ git push origin main
 git checkout custom
 git rebase main
 git push origin custom --force-with-lease
+```
+
+### 安裝方式
+
+```bash
+# 加入 marketplace（需先將 custom 設為 GitHub 預設分支）
+claude /plugin marketplace add Datar-Tech/superpowers
+
+# 安裝
+claude /plugin install superpowers-agent-teams@superpowers-agent-teams
 ```
 
 ### 新增自訂內容
@@ -59,3 +79,4 @@ git push origin custom --force-with-lease
 |------|------|
 | `docs/agent-teams-integration-guide.md` | Agent Teams 搭配 Superpowers 的最佳實踐 |
 | `docs/readme_roger.md` | 本檔案，fork 維護筆記 |
+| `.github/workflows/sync-upstream.yml` | 自動同步上游 + rebase 的 GitHub Action |
