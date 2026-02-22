@@ -1,3 +1,52 @@
+ Agent Teams + Superpowers Integration Guide 說明
+
+  這份文件說明如何在 Claude Code Agent Teams（實驗性功能）中有效使用 Superpowers skills。
+
+  核心概念
+
+  兩套系統各司其職，不要混用：
+
+  - Agent Teams → 負責「誰做什麼」（協調、平行處理、溝通）
+  - Superpowers → 負責「怎麼做」（紀律、方法論、品質）
+
+  Skills 相容性
+
+  10 個 skills 可正常使用，包括：
+  - brainstorming、writing-plans → Lead 使用
+  - test-driven-development、systematic-debugging、verification-before-completion → Teammates 使用
+  - finishing-a-development-branch、using-git-worktrees → Lead 使用
+
+  4 個 skills 被 Agent Teams 取代，在 Agent Teams 啟動時不應使用：
+  - subagent-driven-development → 改由 Lead 生成 teammates
+  - dispatching-parallel-agents → 改由 Lead 平行生成多個 teammates
+  - executing-plans → 改由 Lead 管理共享任務列表
+  - requesting-code-review → 改用專屬 reviewer teammate
+
+  原因：這 4 個 skill 都用 Task tool 做協調，會造成「巢狀協調」（Agent Teams → Teammate → Subagents），浪費 tokens 且混亂。
+
+  最佳實踐
+
+  1. 寫明確的 spawn prompt — Teammates 不繼承 Lead 的對話歷史，要明確指定使用哪些 skills
+  2. 防止巢狀協調 — 在 spawn prompt 中明確排除協調類 skills
+  3. 用 reviewer teammate 取代 requesting-code-review — 好處是 reviewer 和 implementer 能來回對話
+  4. Lead 負責工作流的首尾 — brainstorming → writing-plans → worktrees → [生成 teammates] → finishing
+
+  三種推薦團隊模板
+  ┌────────────────────────┬────────────────────┬──────────────────────────────────────────────┐
+  │          模板          │        用途        │                     成員                     │
+  ├────────────────────────┼────────────────────┼──────────────────────────────────────────────┤
+  │ A: Feature Development │ 功能開發           │ Lead + 2 Implementers + 1 Reviewer           │
+  ├────────────────────────┼────────────────────┼──────────────────────────────────────────────┤
+  │ B: Debugging           │ 除錯（競爭假設法） │ Lead + 3 Investigators                       │
+  ├────────────────────────┼────────────────────┼──────────────────────────────────────────────┤
+  │ C: Large Refactoring   │ 大規模重構         │ Lead + N Implementers + 1 Integration Tester │
+  └────────────────────────┴────────────────────┴──────────────────────────────────────────────┘
+  為什麼不做 Adapter Skill？
+
+  文件解釋了不做自動橋接 skill 的原因：Skills 是 Markdown 指令，無法偵測環境或攔截 tool calls；且 Agent Teams API 仍不穩定。
+
+  ---
+
 # Agent Teams + Superpowers Integration Guide
 
 > How to use Superpowers skills effectively within Claude Code Agent Teams.
