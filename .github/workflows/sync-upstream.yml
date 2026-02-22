@@ -33,7 +33,7 @@ jobs:
 
       - name: Update main branch
         run: |
-          git checkout main
+          git checkout --track origin/main
           git merge --ff-only upstream/main
           git push origin main
 
