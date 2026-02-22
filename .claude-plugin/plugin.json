@@ -1,13 +1,12 @@
 {
-  "name": "superpowers",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-  "version": "4.3.1",
+  "name": "superpowers-agent-teams",
+  "description": "Superpowers with Agent Teams integration: orchestration-aware skills for Claude Code Agent Teams",
+  "version": "4.3.1-agent-teams.1",
   "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "Roger"
   },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/obra/superpowers",
+  "homepage": "https://github.com/Datar-Tech/superpowers",
+  "repository": "https://github.com/Datar-Tech/superpowers",
   "license": "MIT",
   "keywords": ["skills", "tdd", "debugging", "collaboration", "best-practices", "workflows"]
 }

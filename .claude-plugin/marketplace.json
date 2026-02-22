@@ -1,19 +1,17 @@
 {
-  "name": "superpowers-dev",
-  "description": "Development marketplace for Superpowers core skills library",
+  "name": "superpowers-agent-teams",
+  "description": "Superpowers with Agent Teams integration for Claude Code",
   "owner": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "Roger"
   },
   "plugins": [
     {
-      "name": "superpowers",
-      "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-      "version": "4.3.1",
+      "name": "superpowers-agent-teams",
+      "description": "Superpowers with Agent Teams integration: orchestration-aware skills for Claude Code Agent Teams",
+      "version": "4.3.1-agent-teams.1",
       "source": "./",
       "author": {
-        "name": "Jesse Vincent",
-        "email": "jesse@fsck.com"
+        "name": "Roger"
       }
     }
   ]
